@@ -1,0 +1,97 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* PolySans (trial) — via ACM-VIT reference, used with permission */
+@font-face { font-family: "PolySans Trial"; src: url("/fonts/PolySansTrial-Slim.otf") format("opentype"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "PolySans Trial"; src: url("/fonts/PolySansTrial-Neutral.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "PolySans Trial"; src: url("/fonts/PolySansTrial-Median.otf") format("opentype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "PolySans Trial"; src: url("/fonts/PolySansTrial-Bulky.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "PolySans Mono"; src: url("/fonts/PolySansTrial-NeutralMono.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "PolySans Mono"; src: url("/fonts/PolySansTrial-BulkyMono.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "PolySans Wide"; src: url("/fonts/PolySansTrial-BulkyWide.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "PolySans Wide"; src: url("/fonts/PolySansTrial-MedianWide.otf") format("opentype"); font-weight: 500; font-style: normal; font-display: swap; }
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-cream: #FEFCD9;
+  --color-orange: #F95F4A;
+  --color-pink: #FF007A;
+  --font-poly: "PolySans Trial", system-ui, sans-serif;
+  --font-poly-mono: "PolySans Mono", ui-monospace, monospace;
+  --font-poly-wide: "PolySans Wide", "PolySans Trial", sans-serif;
+}
+
+:root {
+  --radius: 0.25rem;
+  --background: #060606;
+  --foreground: #FEFCD9;
+  --primary: #F95F4A;
+  --primary-foreground: #060606;
+  --muted: #1a1a1a;
+  --muted-foreground: #9a9a92;
+  --border: #2a2a2a;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { background: #060606; scroll-behavior: smooth; }
+  body {
+    background: #060606;
+    color: #FEFCD9;
+    font-family: var(--font-poly);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: #F95F4A; color: #fff; }
+  #acm-w ::selection { background: #FF007A; color: #fff; }
+  .page-section { scroll-margin-top: 84px; }
+}
+
+@utility font-wide { font-family: var(--font-poly-wide); }
+@utility font-mono-poly { font-family: var(--font-poly-mono); }
+
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@utility animate-marquee { animation: marquee 40s linear infinite; }
+
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@utility animate-floaty { animation: floaty 6s ease-in-out infinite; }
+
+/* ── HackUEM 6.0 theme ── */
+@theme inline {
+  --color-hack-void: #0a0620;
+  --color-hack-deep: #140b3a;
+  --color-hack-cyan: #35e6ff;
+  --color-hack-violet: #7b3dff;
+  --color-hack-magenta: #ff2fd0;
+}
+
+@keyframes hack-grid { from { background-position: 0 0; } to { background-position: 0 60px; } }
+@utility hack-grid {
+  background-image:
+    linear-gradient(to right, rgba(53,230,255,0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(123,61,255,0.11) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: hack-grid 6s linear infinite;
+}
+
+@keyframes hack-pulse { 0%,100% { opacity: .55; transform: scale(1); } 50% { opacity: 1; transform: scale(1.06); } }
+@utility animate-hack-pulse { animation: hack-pulse 5s ease-in-out infinite; }
+
+@keyframes hack-scan { from { transform: translateY(-100%); } to { transform: translateY(1000%); } }
+@utility animate-hack-scan { animation: hack-scan 7s linear infinite; }
+
+@utility hack-glow { text-shadow: 0 0 12px rgba(255,47,208,0.55), 0 0 40px rgba(123,61,255,0.45); }
+@utility hack-ring {
+  box-shadow: 0 0 0 1px rgba(53,230,255,0.25), 0 0 40px -12px rgba(123,61,255,0.7) inset;
+}
