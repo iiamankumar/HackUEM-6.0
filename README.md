@@ -2,7 +2,7 @@
 
 The official website for **HackUEM 6.0** — a 12-hour flagship hackathon organized by the **UEM Jaipur ACM Student Chapter** at UEM Jaipur.
 
-**Live site:** https://hackuem.xyz
+**Live site:** https://hackuem.lovable.app
 
 ## Event
 
@@ -44,4 +44,9 @@ public/
 
 ---
 
-Website by the UEM Jaipur ACM Student Chapter.
+Website by the UEM Jaipur ACM Student Chapter. Original design reference: ACM VIT Student Chapter (used with permission).
+
+## License
+
+All rights reserved. No one may use, copy, modify, or distribute this code or its assets without prior written permission. See [LICENSE](LICENSE) for details, or request permission at uemj.acm@uem.edu.in.
+
